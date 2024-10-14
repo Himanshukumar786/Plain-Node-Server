@@ -9,7 +9,14 @@ const server = http.createServer((req, res) => {
     console.log(res);
 
     // send a hello world response
-    res.write('Hello world'); // write a response to the client
+
+    if(req.url == '/'){
+        res.write('Home');
+    } else if(req.url == '/ping'){
+        res.write('pong');
+    } else {
+        res.write('Hello world');
+    }
 
     res.end(); // end the response
 });
